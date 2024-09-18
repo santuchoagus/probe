@@ -1,0 +1,7 @@
+**/*.cpp linguist-language=C++
+**/*.h linguist-language=C++
+*.cpp linguist-language=C++
+*.h linguist-language=C++
+
+**/*.go linguist-language=Go
+*.go linguist-language=Go
