@@ -1,0 +1,14 @@
+# Maintemplate connects with aux:
+> {{- template "AuxTmpl"}}
+
+# Example with data:
+{{- /* You need to pass the actual data, this will print empty value */ -}}
+{{template "AuxWithDataTmpl"}}
+{{- /* This will print okay */ -}}
+{{- template "AuxWithDataTmpl" .}}
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Now, here are some vectors and their respective quadrants:  #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+{{template "MethodsTmpl" .Vectors}}
