@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	art "example.com/events/articles"
+	"examples/howgobehaveswithfolders/articles"
 )
 
 func main() {
