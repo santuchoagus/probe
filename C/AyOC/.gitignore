@@ -6,3 +6,6 @@
 *.dll
 *.out
 *.dwo
+tmp
+*.s
+*.S
