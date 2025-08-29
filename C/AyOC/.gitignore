@@ -1,0 +1,11 @@
+*.o
+*.d
+*.obj
+*.elf
+*.so
+*.dll
+*.out
+*.dwo
+tmp
+*.s
+*.S
