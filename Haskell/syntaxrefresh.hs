@@ -76,3 +76,5 @@ data Ddd a b = Kkk (b a) deriving (Show)
 
 instance Tofu Ddd where
     tofu x = Kkk x
+
+
