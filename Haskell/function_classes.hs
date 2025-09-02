@@ -45,3 +45,52 @@ mejorSegun f = foldl1 (\x rec -> if f x rec then x else rec)
 sumasParciales :: Num a => [a] -> [a]
 sumasParciales xs = foldl (\rec x -> rec ++ [(+) x (if null rec then 0 else last rec)]) [] xs
 
+-- sumaAlt [1] ~> 1
+-- sumaAlt [1, 2] ~> 1 - 2
+-- sumaAlt [1, 2, 3] ~> 1 - 2 + 3
+-- sumaAlt [1, 2, 3, 4] ~> 1 - 2 + 3 - 4
+--
+-- foldr (-) z [a, b, c, d, e]
+-- a - (b - (c - (d - (e - z)))))
+-- a - b + (c - (d - (e - z)))
+-- a - b + c - (d - (...))
+--
+sumaAlt :: Num a => [a] -> a
+sumaAlt = foldr (-) 0
+
+-- sumaAlt' [1,2,3,4,5]
+-- 5 - 4 + 3 - 2 + 1
+-- 1 - 2 + 3 - 4 + 5
+--
+--
+--  4 - 3 + 2 - 1
+--  - 1 + 2 - 3 + 4
+-- 
+sumaAlt' :: Num a => [a] -> a
+-- sumaAlt' = foldl1 (\a b -> b - a)
+-- (\a b -> (-) b a)
+-- (\a b -> flip (-) a b)
+-- (flip (-))
+sumaAlt' = foldl1 (flip (-))
+
+
+agregarPerms :: a -> [a] -> [[a]]
+agregarPerms x xs = map (\n -> take n xs ++ [x] ++ drop n xs) [0 .. length xs]
+
+permutaciones :: [a] -> [[a]]
+permutaciones = foldr (\x -> concatMap (agregarPerms x)) [[]]
+
+partes :: [a] -> [[a]]
+partes = foldr (\x rec -> map (x:) rec ++ rec) [[]]
+
+prefix :: [a] -> [[a]]
+prefix = foldl (\ac x -> (head ac ++ [x]) : ac) [[]]
+
+-- TODO: take' :: Int -> [b] -> [b]
+-- take' = foldr (\x rec n -> if n>0 then x:(rec (n-1)) else []) (const [])
+--
+
+
+
+
+
