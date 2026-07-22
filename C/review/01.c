@@ -7,10 +7,10 @@ typedef int type_t;
 #define MAIN
 
 int main(void) {
-    /*(?) C is statically typed so a variable cannot change its type during runtime. */ */
+    /*(?) C is statically typed so a variable cannot change its type during runtime. */
     type_t x = 1290;
     
-    /* https://en.cppreference.com/w/c/types/integer.html */ */
+    /* https://en.cppreference.com/w/c/types/integer.html */
 
     /*Declaration: Where the variable is announced but not necessarily assigned a memory space*/
     extern int y;
@@ -18,8 +18,9 @@ int main(void) {
     /*Definition: Where it is created or a memory is assigned */
     char c = 'a';
     int a; /* Defined with garbage values, except when the variable is defined globally */
-
-
+    /* By default local variables have automatic storage duration, so it is redundant to do */
+    auto int b = 0; /* Even if we use 'auto', it is redundant */
+    
     /* Duration:
         Static (Data): Variable exist during the entire program execution
         Automatic (Stack): Variable exist during the function execution (every local variable inside a function by default)
@@ -28,9 +29,9 @@ int main(void) {
 
     /* Memory:
         Code: Reserved read-only memory for the instructions
-        Automatic: Reserved at runtime for local variables, can change during execution, it also called stack
-        Dinamic: Reserved at runtime for dynamic variables, can change during execution, it also called heap
         Static: Reserved at runtime for static variables, can't change during execution, it also called data
+        Automatic: Reserved at runtime for local variables, can change during execution, it also called stack
+        Dynamic: Reserved at runtime for dynamic variables, can change during execution, it also called heap
    
         There is also a concept called linkage:
         External: The variable is visible in any file that includes its declaration (e.g. global variables)
